@@ -55,6 +55,7 @@ int		find_index(t_node **stack, int val);
 void    target_node(t_node **stack_a, t_node **stack_b);
 void    push_cost(t_node **stack_a, t_node **stack_b);
 void    set_cheapest(t_node **stack);
+void    move_nodes(t_node **stack_a, t_node **stack_b);
 
 // <----- Algorithm implementation------>
 void    sort_three(t_node **stack);
@@ -75,4 +76,6 @@ int		rrr(t_node **stack_a, t_node **stack_b);
 int		push_command(t_node **from_stack, t_node **to_stack);
 int		pa(t_node **stack_b, t_node **stack_a);
 int		pb(t_node **stack_a, t_node **stack_b);
+/// testing
+void	print_node_val(t_node **stack);
 #endif

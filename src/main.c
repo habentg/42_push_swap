@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:01:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/07/25 20:45:56 by aandom           ###   ########.fr       */
+/*   Updated: 2023/07/26 22:19:34 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ int	main(int argc, char **argv)
 	if (!is_sorted(stack_a))
 	{
 		lets_sort(stack_a, stack_b);
-		print_node_val(stack_a);
-		print_node_val(stack_b);
+		// print_node_val(stack_a);
+		// print_node_val(stack_b);
 		ft_clean_stack(stack_a);
 		if (stack_b)
 			ft_clean_stack(stack_b);

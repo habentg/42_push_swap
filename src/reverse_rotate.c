@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkiflema <mkiflema@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 18:52:30 by mkiflema          #+#    #+#             */
-/*   Updated: 2023/07/19 20:28:29 by mkiflema         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:36:00 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	reverse_rotate(t_node **stack)
 		ft_error ("rotating error!");
 	*stack = last_node;
 	ft_lstadd_back(stack, head_node);
+	index_stack(stack);
 	return (0);
 }
 

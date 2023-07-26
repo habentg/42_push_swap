@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkiflema <mkiflema@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 19:21:17 by mkiflema          #+#    #+#             */
-/*   Updated: 2023/07/19 20:24:40 by mkiflema         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:32:53 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	push_command(t_node **from_stack, t_node **to_stack)
 {
 	t_node	*from_head;
-	t_node	*to_head;
 
 	if ((ft_lstsize(*from_stack) == 0))
 		return (-1);
 	from_head = *from_stack;
-	to_head = *to_stack;
 	*from_stack = from_head->next;
 	from_head->next = NULL;
 	ft_lstadd_front(to_stack, from_head);
+	index_stack(from_stack);
+	index_stack(to_stack);
 	return (0);
 }
 
-int	pa(t_node **stack_b, t_node **stack_a)
+int	pa(t_node **stack_a, t_node **stack_b)
 {
-	if (push_command(stack_b, stack_a) == -1 || !stack_a || !stack_b)
+	if (push_command(stack_b, stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("pa", 1);
 	return (0);

@@ -6,7 +6,7 @@
 #    By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/19 11:51:57 by mkiflema          #+#    #+#              #
-#    Updated: 2023/07/25 18:29:55 by aandom           ###   ########.fr        #
+#    Updated: 2023/07/26 22:32:40 by aandom           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ RM = rm -rf
 
 all: ${NAME}
 ${NAME}: ${OBJS}
-	#@${MAKE} -C ./libft
+	@${MAKE} -C ./libft
 	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
 
 clean: 
-	#@${MAKE} -C ./libft fclean
+	@${MAKE} -C ./libft fclean
 	@${RM} ${OBJS}
 
 fclean: clean

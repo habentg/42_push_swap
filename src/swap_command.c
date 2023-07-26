@@ -25,6 +25,7 @@ int	swap_command(t_node **stack)
 		ft_error ("swaping error!");
 	head_node->next = next_node->next;
 	ft_lstadd_front(stack, next_node);
+	index_stack(stack);
 	return (0);
 }
 
