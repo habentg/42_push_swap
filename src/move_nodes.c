@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 20:56:28 by aandom            #+#    #+#             */
-/*   Updated: 2023/07/26 22:27:19 by aandom           ###   ########.fr       */
+/*   Updated: 2023/07/31 23:07:27 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,23 @@ static t_node	*return_cheapest(t_node *stack)
 
 static void    rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest_push)
 {
-    t_node *temp_a;
-    t_node *temp_b;
-    
-    temp_a = *stack_a;
-    temp_b = *stack_b;
-    while ((temp_a->target_node != cheapest_push) && (temp_b != cheapest_push))
-    {
+    while (((*stack_a)->target_node != cheapest_push) && ((*stack_b) != cheapest_push))
         rr(stack_a, stack_b);
-        temp_a = temp_a->next;
-        temp_b = temp_b->next;
-    }
     index_stack(stack_a);
     index_stack(stack_b);
 }
 
 static void    r_rotate_both(t_node **stack_a, t_node **stack_b, t_node *cheapest_push)
 {
-    t_node *temp_a;
-    t_node *temp_b;
-    
-    temp_a = *stack_a;
-    temp_b = *stack_b;
-    while ((temp_a->target_node != cheapest_push) && (temp_b != cheapest_push))
-    {
+    while (((*stack_a)->target_node != cheapest_push) && ((*stack_b) != cheapest_push))
         rrr(stack_a, stack_b);
-        temp_a = temp_a->next;
-        temp_b = temp_b->next;
-    }
     index_stack(stack_a);
     index_stack(stack_b);
 }
 
-static void more_rotation(t_node **stack,t_node *wanted_node, char stack_name)
+void more_rotation(t_node **stack,t_node *wanted_node, char stack_name)
 {
-    t_node  *temp;
-
-    temp = *stack;
-    while (temp && temp != wanted_node)
+    while ((*stack) != wanted_node)
     {
         if (stack_name == 'a')
 		{
@@ -81,15 +60,17 @@ static void more_rotation(t_node **stack,t_node *wanted_node, char stack_name)
 			else
 				rrb(stack);
 		}
-        temp = temp->next;
+        index_stack(stack);
     }
-   index_stack(stack); 
 }
 void    move_nodes(t_node **stack_a, t_node **stack_b)
 {
     t_node	*cheapest_push;
     
 	cheapest_push = return_cheapest(*stack_b);
+    // printf("cheapest node value: %d\n", cheapest_push->value);
+    // printf("cheapest node target: %d\n", cheapest_push->target_node->value);
+    // printf("cheapest node push price: %d\n", cheapest_push->total_push_cost);
     if (cheapest_push->above_midpoint
 		&& cheapest_push->target_node->above_midpoint)
 		rotate_both(stack_a, stack_b, cheapest_push);
@@ -99,6 +80,4 @@ void    move_nodes(t_node **stack_a, t_node **stack_b)
     more_rotation(stack_b, cheapest_push, 'b');
 	more_rotation(stack_a, cheapest_push->target_node, 'a');
 	pa(stack_a, stack_b);
-    index_stack(stack_a);
-    index_stack(stack_b);
 }

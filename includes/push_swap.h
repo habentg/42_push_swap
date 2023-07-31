@@ -29,7 +29,7 @@ typedef struct s_node
 	int				current_index;
 	int				above_midpoint;
 	int				total_push_cost;
-	int				cheapest;
+	bool			cheapest;
 	struct s_node	*target_node;
 	struct s_node	*next;
 }	t_node;
@@ -52,14 +52,17 @@ void    index_stack(t_node **stack);
 int		find_largest_node(t_node **stack);
 t_node	*find_smallest_node(t_node **stack);
 int		find_index(t_node **stack, int val);
-void    target_node(t_node **stack_a, t_node **stack_b);
-void    push_cost(t_node **stack_a, t_node **stack_b);
-void    set_cheapest(t_node **stack);
+void    set_target_node(t_node *stack_a, t_node *stack_b);
+void	set_price(t_node *stack_a, t_node *stack_b);
+void    set_cheapest(t_node *stack);
 void    move_nodes(t_node **stack_a, t_node **stack_b);
+void	more_rotation(t_node **stack,t_node *wanted_node, char stack_name);
+void	node_init(t_node **stack_a, t_node **stack_b);
 
 // <----- Algorithm implementation------>
 void    sort_three(t_node **stack);
 void    sort_big(t_node **stack_a, t_node **stack_b);
+bool	is_sorted(t_node **stack);
 // <----- Actions------>
 int		swap_command(t_node **stack);
 int		sa(t_node **stack_a);
@@ -77,5 +80,5 @@ int		push_command(t_node **from_stack, t_node **to_stack);
 int		pa(t_node **stack_b, t_node **stack_a);
 int		pb(t_node **stack_a, t_node **stack_b);
 /// testing
-void	print_node_val(t_node **stack);
+// void	print_node_val(t_node **stack);
 #endif

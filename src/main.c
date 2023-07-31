@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:01:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/07/26 22:19:34 by aandom           ###   ########.fr       */
+/*   Updated: 2023/07/31 23:09:57 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	stack_init(t_node **stack, int argc, char **argv)
 }
 
 
-static bool	is_sorted(t_node **stack)
+bool	is_sorted(t_node **stack)
 {
 	t_node	*current_node;
 
@@ -66,19 +66,19 @@ static void    lets_sort(t_node **stack_a, t_node **stack_b)
         sort_big(stack_a, stack_b);
 }
 
-void	print_node_val(t_node **stack)
-{
-	t_node	*temp;
+// void	print_node_val(t_node **stack)
+// {
+// 	t_node	*temp;
 	
-	temp = *stack;
-    printf("stack: ");
-    while (temp)
-	{
-		printf("%d ", temp->value);
-		temp = temp->next;
-	}
-    printf("\n");
-}
+// 	temp = *stack;
+//     printf("stack: ");
+//     while (temp)
+// 	{
+// 		printf("%d ", temp->value);
+// 		temp = temp->next;
+// 	}
+//     printf("\n");
+// }
 
 int	main(int argc, char **argv)
 {
@@ -94,8 +94,6 @@ int	main(int argc, char **argv)
 	if (!is_sorted(stack_a))
 	{
 		lets_sort(stack_a, stack_b);
-		// print_node_val(stack_a);
-		// print_node_val(stack_b);
 		ft_clean_stack(stack_a);
 		if (stack_b)
 			ft_clean_stack(stack_b);

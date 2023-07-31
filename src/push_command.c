@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 19:21:17 by mkiflema          #+#    #+#             */
-/*   Updated: 2023/07/26 21:32:53 by aandom           ###   ########.fr       */
+/*   Updated: 2023/07/27 01:42:33 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	push_command(t_node **from_stack, t_node **to_stack)
 	*from_stack = from_head->next;
 	from_head->next = NULL;
 	ft_lstadd_front(to_stack, from_head);
-	index_stack(from_stack);
-	index_stack(to_stack);
 	return (0);
 }
 

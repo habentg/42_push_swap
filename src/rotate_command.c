@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 13:58:09 by mkiflema          #+#    #+#             */
-/*   Updated: 2023/07/26 21:36:47 by aandom           ###   ########.fr       */
+/*   Updated: 2023/07/27 01:42:24 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	rotate_command(t_node **stack)
 	*stack = head_node->next;
 	head_node->next = NULL;
 	ft_lstadd_back(stack, head_node);
-	index_stack(stack);
 	if (!head_node || !last_node)
 		ft_error ("rotating error!");
 	return (0);
