@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 19:35:42 by aandom            #+#    #+#             */
-/*   Updated: 2023/07/31 23:05:54 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/03 21:25:33 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void	set_cheapest(t_node *stack)
 		}
 		stack = stack->next;
 	}
-	cheapest_node->cheapest = true;
+	cheapest_node->cheapest = 1;
 }

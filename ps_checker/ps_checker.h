@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_checker.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/03 20:47:02 by aandom            #+#    #+#             */
+/*   Updated: 2023/08/04 11:01:20 by aandom           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PS_CHECKER_H
+#define PS_CHECKER_H
+
+# include <stdlib.h>
+# include <sys/types.h>
+# include <limits.h>
+# include <unistd.h>
+# include <sys/uio.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include "../libft/libft.h"
+# include "../includes/push_swap.h"
+
+typedef struct s_list{
+    char            *content;
+    struct s_list   *next;
+}   t_list;
+
+ /*<--------------get_next_line funcs--------------->*/
+ char    *get_next_line(int fd);
+ 
+ /*<--------------get_next_line util funcs--------------->*/
+ 
+ /*<--------------push_swap checker funcs--------------->*/
+ void	apply_commands(t_list **a, t_list **b, char *cmd);
+ void	sort_for_check(t_list **a, t_list **b);
+ int	ft_strcmp(char *str1, char *str2);
+#endif
