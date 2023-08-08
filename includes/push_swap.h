@@ -48,6 +48,7 @@ void	ft_lstadd_front(t_node **lst, t_node *new);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 
 // <----- stack functions------>
+void	stack_init(t_node **stack, int argc, char **argv);
 void    index_stack(t_node **stack);
 int		find_largest_node(t_node **stack);
 t_node	*find_smallest_node(t_node **stack);

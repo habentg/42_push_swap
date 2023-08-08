@@ -6,13 +6,13 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:01:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/03 21:50:54 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/08 09:11:14 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	stack_init(t_node **stack, int argc, char **argv)
+void	stack_init(t_node **stack, int argc, char **argv)
 {
 	char	**args;
 	t_node	*new_node;
@@ -43,7 +43,7 @@ int	is_sorted(t_node **stack)
 	t_node	*current_node;
 
 	current_node = *stack;
-	while (current_node)
+	while (current_node->next)
 	{
 		if (current_node->value > current_node->next->value)
 			return (0);
@@ -92,13 +92,10 @@ int	main(int argc, char **argv)
 	stack_b = (t_node **)calloc(1, sizeof(t_node));
 	stack_init(stack_a, argc, argv);
 	if (!is_sorted(stack_a))
-	{
 		lets_sort(stack_a, stack_b);
-		ft_clean_stack(stack_a);
-		if (stack_b)
-			ft_clean_stack(stack_b);
-		exit (0);
-	}
 	ft_clean_stack(stack_a);
+	ft_clean_stack(stack_b);
+	// free(*stack_a);
+	// free(*stack_b);
 	return (0);
 }

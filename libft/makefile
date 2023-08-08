@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mkiflema <mkiflema@student.42.fr>          +#+  +:+       +#+         #
+#    By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:55:23 by kvinarao          #+#    #+#              #
-#    Updated: 2023/07/19 11:49:27 by mkiflema         ###   ########.fr        #
+#    Updated: 2023/08/08 09:04:20 by aandom           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ SRCS		= ft_atoi.c \
 				ft_putstr_fd.c \
 				ft_split.c \
 				ft_strlen.c \
+				ft_strchr.c \
+				ft_strjoin.c \
 
 
 OBJS = $(SRCS:.c=.o)

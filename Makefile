@@ -6,7 +6,7 @@
 #    By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/19 11:51:57 by mkiflema          #+#    #+#              #
-#    Updated: 2023/08/04 13:24:19 by aandom           ###   ########.fr        #
+#    Updated: 2023/08/08 08:53:10 by aandom           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ RESET = \033[0m
 all: ${NAME}
 
 ${NAME}: ${OBJS} $(ARCHIVE)
-	#@${MAKE} -C ./libft
+	@${MAKE} -C ./libft
 	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
 	@echo "$(NAME): $(GREEN)'$(NAME)' was created!$(RESET)"
 
@@ -38,7 +38,7 @@ bonus :
 	cd ./ps_checker && make
 		
 clean: 
-	#@${MAKE} -C ./libft fclean
+	@${MAKE} -C ./libft fclean
 	@${RM} ${OBJS} $(ARCHIVE)
 	@echo "$(NAME): $(RED)'object files' were deleted!$(RESET)"
 	@echo "$(NAME): $(RED)'$(ARCHIVE)' was deleted!$(RESET)"

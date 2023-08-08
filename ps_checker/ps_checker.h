@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 20:47:02 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/04 11:01:20 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/08 08:46:44 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <limits.h>
 # include <unistd.h>
 # include <sys/uio.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <sys/stat.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -33,6 +36,7 @@ typedef struct s_list{
 
  /*<--------------get_next_line funcs--------------->*/
  char    *get_next_line(int fd);
+ int	get_nl_index(char *stash);
  
  /*<--------------get_next_line util funcs--------------->*/
  

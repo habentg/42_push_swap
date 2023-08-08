@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkiflema <mkiflema@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 17:23:22 by kvinarao          #+#    #+#             */
-/*   Updated: 2023/07/19 12:01:38 by mkiflema         ###   ########.fr       */
+/*   Updated: 2023/08/08 08:53:33 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../includes/push_swap.h"
 
 long	ft_atoi(const char *str)
 {
@@ -32,6 +33,8 @@ long	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		number = (number * 10) + (str[i] - '0');
+		if (number * sign > INT_MAX || number * sign < INT_MIN)
+			ft_error(ERROR_MSG);
 		i++;
 	}
 	return (number * sign);
