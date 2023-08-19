@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_checker.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 20:47:02 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/19 23:21:14 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 02:16:14 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,15 @@
 # include "../includes/push_swap.h"
 
  /*<--------------get_next_line funcs--------------->*/
- char    *get_next_line(int fd);
- int	get_nl_index(char *stash);
+char	*get_next_line(int fd);
+
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t element_count, size_t element_size);
+
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(const char *str, int c);
+
+size_t	ft_strlen(const char *str);
  
  /*<--------------get_next_line util funcs--------------->*/
  

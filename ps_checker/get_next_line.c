@@ -3,157 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/22 17:30:18 by lgaudin           #+#    #+#             */
-/*   Updated: 2023/08/19 23:48:24 by aandom           ###   ########.fr       */
+/*   Created: 2023/02/08 14:18:27 by hatesfam          #+#    #+#             */
+/*   Updated: 2023/08/20 02:16:51 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_checker.h"
 
-
-/**
- * @brief
- * Takes the current stash and a buffer, and returns
- * the appended stash.
- *
- * @param    stash     the stash to append
- * @param    buffer    the buffer to append to the stash
- * @return   char*     the updated stash
- */
-char	*append_to_stash(char *stash, char *buffer)
+char	*next_line(char *buffer)
 {
-	char	*temp;
+	size_t	i;
+	size_t	j;
+	char	*line;
 
-	temp = ft_strjoin(stash, buffer);
-	free(stash);
-	return (temp);
-}
-
-/**
- * @brief
- * Reads from a file descriptor and appends its contents
- * (until a '\n' is encountered) to the provided stash.
- *
- * If the stash is empty (e.g. because it is the first call
- * of get_next_line), initialises with calloc.
- *
- * If the read fails, frees the buffer and the stash, then
- * returns NULL.
- *
- * @param    fd        the descriptor of the file to read
- * @param    stash     the stash to append
- * @return   char*     the appended stash
- */
-char	*read_to_stash(int fd, char *stash)
-{
-	int		read_bytes;
-	char	*buffer;
-
-	if (!stash)
-		stash = ft_calloc(1, sizeof(char));
-	read_bytes = 1;
-	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-	while (read_bytes > 0)
-	{
-		if (read(fd, 0, 0) == -1)
-		{
-			free(stash);
-			free(buffer);
-			return (0);
-		}
-		read_bytes = read(fd, buffer, BUFFER_SIZE);
-		buffer[read_bytes] = '\0';
-		stash = append_to_stash(stash, buffer);
-		if (ft_strchr(buffer, '\n') != 0)
-			break ;
-	}
-	free(buffer);
-	return (stash);
-}
-
-/**
- * @brief
- * Takes the provided stash and removes the characters
- * before the first '\n' (included), then returns the
- * updated version.
- *
- * If the stash has only one line left, it is freed and
- * the return value is NULL.
- *
- * @param    stash
- * @param    nl_index  the index of the '\n'
- * @return   char*     the purged stash
- */
-char	*get_new_stash(char *stash, int nl_index)
-{
-	char	*new_stash;
-	int		i;
-
-	if (stash[nl_index] == '\0')
-	{
-		free(stash);
-		return (0);
-	}
-	new_stash = ft_calloc(ft_strlen(stash) - nl_index + 1, sizeof(char));
-	nl_index++;
 	i = 0;
-	while (stash[nl_index])
-	{
-		new_stash[i] = stash[nl_index];
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
-		nl_index++;
+	if (!buffer[i])
+	{
+		free(buffer);
+		return (NULL);
 	}
-	free(stash);
-	return (new_stash);
+	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	i++;
+	j = 0;
+	while (buffer[i])
+		line[j++] = buffer[i++];
+	free(buffer);
+	return (line);
 }
 
-/**
- * @brief
- * Takes the stash (i.e. accumulation of read buffers)
- * and returns all of the characters before '\n',
- * including the latter.
- *
- * If the stash is empty, it returns a null pointer.
- *
- *
- * @param    stash
- * @return   char*     the first "line" of the stash.
- */
-char	*stash_to_line(char *stash)
+char	*extract_line(char *buffer)
 {
 	char	*line;
-	int		nl_index;
-	int		i;
+	size_t	i;
 
-	if (stash[0] == '\0')
-		return (0);
-	nl_index = get_nl_index(stash);
-	line = ft_calloc(nl_index + 2, sizeof(char));
 	i = 0;
-	while (stash[i] && stash[i] != '\n')
+	if (!buffer[i])
+		return (NULL);
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	line = ft_calloc(i + 2, sizeof(char));
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
 	{
-		line[i] = stash[i];
+		line[i] = buffer[i];
 		i++;
 	}
-	if (stash[i] == '\n')
-		line[i] = stash[i];
+	if (buffer[i] && buffer[i] == '\n')
+		line[i++] = '\n';
 	return (line);
+}
+
+char	*read_buffer(int fd, char *buff)
+{
+	char	*buffer;
+	int		byte_read;
+
+	if (!buff)
+		buff = ft_calloc(1, 1);
+	buffer = ft_calloc((size_t)BUFFER_SIZE + 1, sizeof(char));
+	byte_read = 1;
+	while (!(ft_strchr(buffer, '\n')) && byte_read > 0)
+	{
+		byte_read = read(fd, buffer, BUFFER_SIZE);
+		if (byte_read == -1)
+		{
+			free(buffer);
+			return (NULL);
+		}
+		buffer[byte_read] = '\0';
+		buff = ft_strjoin(buff, buffer);
+	}
+	free(buffer);
+	return (buff);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*buffer;
 	char		*line;
 
-	if (!(fd >= 0 && BUFFER_SIZE > 0) || read(fd, 0, 0) < 0)
-	{
-		free(stash);
-		return (0);
-	}
-	stash = read_to_stash(fd, stash);
-	line = stash_to_line(stash);
-	stash = get_new_stash(stash, get_nl_index(stash));
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647
+		|| read(fd, 0, 0) < 0)
+		return (NULL);
+	buffer = read_buffer(fd, buffer);
+	if (!buffer)
+		return (NULL);
+	line = extract_line(buffer);
+	buffer = next_line(buffer);
 	return (line);
 }
