@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	stack_init(t_node **stack, int argc, char **argv)
+static void	stack_init(t_node **stack, int argc, char **argv)
 {
 	char	**args;
 	t_node	*new_node;
@@ -38,7 +38,7 @@ void	stack_init(t_node **stack, int argc, char **argv)
 }
 
 
-int	is_sorted(t_node **stack)
+static int	is_sorted(t_node **stack)
 {
 	t_node	*current_node;
 

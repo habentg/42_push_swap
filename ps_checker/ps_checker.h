@@ -26,13 +26,8 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include "../libft/libft.h"
+# include "./../includes/libft/libft.h"
 # include "../includes/push_swap.h"
-
-typedef struct s_list{
-    char            *content;
-    struct s_list   *next;
-}   t_list;
 
  /*<--------------get_next_line funcs--------------->*/
  char    *get_next_line(int fd);
@@ -41,7 +36,7 @@ typedef struct s_list{
  /*<--------------get_next_line util funcs--------------->*/
  
  /*<--------------push_swap checker funcs--------------->*/
- void	apply_commands(t_list **a, t_list **b, char *cmd);
- void	sort_for_check(t_list **a, t_list **b);
+ void	apply_commands(t_node **a, t_node **b, char *cmd);
+ void	sort_for_check(t_node **a, t_node **b);
  int	ft_strcmp(char *str1, char *str2);
 #endif

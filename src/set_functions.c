@@ -68,6 +68,8 @@ void	set_cheapest(t_node *stack)
 	if (!stack)
 		return ;
 	node_cost = INT_MAX;
+	cheapest_node = stack;
+	cheapest_node->cheapest = 0;
 	while (stack)
 	{
 		if (stack->total_push_cost < node_cost)
