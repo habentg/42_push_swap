@@ -58,10 +58,7 @@ static void    lets_sort(t_node **stack_a, t_node **stack_b)
 
     stack_a_size = ft_lstsize(*stack_a);
     if (stack_a_size <= 3)
-    {
         sort_three(stack_a);
-        exit (0);
-    }
     else
         sort_big(stack_a, stack_b);
 }
