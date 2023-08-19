@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:07:12 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/03 21:50:35 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/19 23:06:23 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void    sort_big(t_node **stack_a, t_node **stack_b)
 	else
 		while (*stack_a != smallest_node)
 			rra(stack_a);
-    printf("<-------hopefully sorted stack A & empty stack B--------->\n");
-    print_node_val(stack_a);
-    print_node_val(stack_b);
+    // printf("<-------hopefully sorted stack A & empty stack B--------->\n");
+    // print_node_val(stack_a);
+    // print_node_val(stack_b);
 }

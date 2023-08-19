@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 20:42:41 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/04 10:59:36 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 00:09:45 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,45 +65,6 @@ void	sort_for_check(t_node **a, t_node **b)
 	apply_commands(a, b, cmnd);
 }
 
-static void	stack_init(t_node **stack, int argc, char **argv)
-{
-	char	**args;
-	t_node	*new_node;
-	int		i;
-
-	i = 0;
-	if (argc == 2)
-		args = ft_split(argv[1], 32);
-	else
-	{
-		i = 1;
-		args = argv;
-	}
-	while (args[i])
-	{
-		new_node = ft_lstnew(ft_atoi(args[i]));
-		ft_lstadd_back(stack, new_node);
-		i++;
-	}
-	index_stack(stack);
-	if (argc == 2)
-		ft_clean_argv(args);
-}
-
-
-static int	is_sorted(t_node **stack)
-{
-	t_node	*current_node;
-
-	current_node = *stack;
-	while (current_node->next)
-	{
-		if (current_node->value > current_node->next->value)
-			return (0);
-		current_node = current_node->next;
-	}
-	return (1);
-}
 int	main(int argc, char **argv)
 {
 	t_node	**a;
@@ -112,8 +73,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit(0);
 	check_args(argc, argv);
-	a = (t_node **)calloc(1, sizeof(t_node));
-	b = (t_node **)calloc(1, sizeof(t_node));
+	a = (t_node **)ft_calloc(1, sizeof(t_node));
+	b = (t_node **)ft_calloc(1, sizeof(t_node));
 	stack_init(a, argc, argv);
 	if (!is_sorted(a))
 	{

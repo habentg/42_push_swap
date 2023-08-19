@@ -6,7 +6,7 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 17:30:18 by lgaudin           #+#    #+#             */
-/*   Updated: 2023/08/08 08:45:48 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/19 23:48:24 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,20 +142,6 @@ char	*stash_to_line(char *stash)
 	return (line);
 }
 
-/**
- * @brief
- * Takes a file descriptor and returns the next line
- * encountered.
- *
- * If:
- * - the file descriptor is invalid,
- * - BUFFER_SIZE is null or negative,
- * - read() on fd fails,
- * frees the stash and returns NULL.
- *
- * @param    fd        the descriptor of the file to read
- * @return   char*     explanation
- */
 char	*get_next_line(int fd)
 {
 	static char	*stash;

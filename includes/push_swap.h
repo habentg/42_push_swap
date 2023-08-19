@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
-# include "./libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_node
 {
@@ -49,7 +49,7 @@ void	ft_lstadd_front(t_node **lst, t_node *new);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 
 // <----- stack functions------>
-// void	stack_init(t_node **stack, int argc, char **argv);
+void	stack_init(t_node **stack, int argc, char **argv);
 void    index_stack(t_node **stack);
 int		find_largest_node(t_node **stack);
 t_node	*find_smallest_node(t_node **stack);
@@ -64,7 +64,8 @@ void	node_init(t_node **stack_a, t_node **stack_b);
 // <----- Algorithm implementation------>
 void    sort_three(t_node **stack);
 void    sort_big(t_node **stack_a, t_node **stack_b);
-// int		is_sorted(t_node **stack);
+int		is_sorted(t_node **stack);
+void    lets_sort(t_node **stack_a, t_node **stack_b);
 // <----- Actions------>
 int		swap_command(t_node **stack);
 int		sa(t_node **stack_a);

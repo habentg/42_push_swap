@@ -6,7 +6,7 @@
 #    By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:55:23 by kvinarao          #+#    #+#              #
-#    Updated: 2023/08/08 09:04:20 by aandom           ###   ########.fr        #
+#    Updated: 2023/08/20 00:05:22 by aandom           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,17 +39,17 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 %.o : %.c
-				$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
-				$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 
 fclean : clean 
-				$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 $(NAME) : $(OBJS)
-				$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 
-re :			fclean	all
+re :fclean	all
 
 .PHONY :all clean fclean re

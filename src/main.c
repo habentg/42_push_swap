@@ -6,13 +6,13 @@
 /*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:01:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/08 09:11:14 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 00:10:41 by aandom           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	stack_init(t_node **stack, int argc, char **argv)
+void	stack_init(t_node **stack, int argc, char **argv)
 {
 	char	**args;
 	t_node	*new_node;
@@ -38,7 +38,7 @@ static void	stack_init(t_node **stack, int argc, char **argv)
 }
 
 
-static int	is_sorted(t_node **stack)
+int	is_sorted(t_node **stack)
 {
 	t_node	*current_node;
 
@@ -52,7 +52,7 @@ static int	is_sorted(t_node **stack)
 	return (1);
 }
 
-static void    lets_sort(t_node **stack_a, t_node **stack_b)
+void    lets_sort(t_node **stack_a, t_node **stack_b)
 {
     int stack_a_size;
 
