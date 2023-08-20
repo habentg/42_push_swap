@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 20:42:41 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/20 00:09:45 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:16:25 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	rotate_both(t_node **a, t_node **b, char *cmd)
 		rrb(b);
 	}
 }
+
 void	apply_commands(t_node **a, t_node **b, char *cmd)
 {
 	if (ft_strcmp("ra\n", cmd))
@@ -48,7 +49,8 @@ void	apply_commands(t_node **a, t_node **b, char *cmd)
 		rra(a);
 	else if (ft_strcmp("rrb\n", cmd))
 		rrb(b);
-	else if ((ft_strcmp("rrr\n", cmd)) || (ft_strcmp("rr\n", cmd)) || (ft_strcmp("ss\n", cmd)))
+	else if ((ft_strcmp("rrr\n", cmd)) || (ft_strcmp("rr\n", cmd)) || \
+		(ft_strcmp("ss\n", cmd)))
 		rotate_both(a, b, cmd);
 	else
 		ft_error("INVALID INSTRUCTIO!!");
@@ -58,7 +60,7 @@ void	sort_for_check(t_node **a, t_node **b)
 {
 	char	*cmnd;
 	int		fd;
-	
+
 	fd = 0;
 	cmnd = get_next_line(fd);
 	printf("%s \n", cmnd);
@@ -78,7 +80,7 @@ int	main(int argc, char **argv)
 	stack_init(a, argc, argv);
 	if (!is_sorted(a))
 	{
-		sort_for_check(a, b); // the whole deal here!!!
+		sort_for_check(a, b);
 		if (is_sorted(a))
 			ft_error("OK");
 		else
@@ -86,5 +88,5 @@ int	main(int argc, char **argv)
 	}
 	ft_clean_stack(a);
 	ft_clean_stack(b);
-	return(0);
+	return (0);
 }

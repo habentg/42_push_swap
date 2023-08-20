@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 16:36:57 by aandom            #+#    #+#             */
-/*   Updated: 2023/07/25 17:58:48 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:08:49 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ char	**ft_clean_argv(char **argv)
 	free(argv);
 	return (0);
 }
-

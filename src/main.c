@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:01:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/20 00:10:41 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:07:59 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	stack_init(t_node **stack, int argc, char **argv)
 		ft_clean_argv(args);
 }
 
-
 int	is_sorted(t_node **stack)
 {
 	t_node	*current_node;
@@ -52,29 +51,29 @@ int	is_sorted(t_node **stack)
 	return (1);
 }
 
-void    lets_sort(t_node **stack_a, t_node **stack_b)
+void	lets_sort(t_node **stack_a, t_node **stack_b)
 {
-    int stack_a_size;
+	int	stack_a_size;
 
-    stack_a_size = ft_lstsize(*stack_a);
-    if (stack_a_size <= 3)
-        sort_three(stack_a);
-    else
-        sort_big(stack_a, stack_b);
+	stack_a_size = ft_lstsize(*stack_a);
+	if (stack_a_size <= 3)
+		sort_three(stack_a);
+	else
+		sort_big(stack_a, stack_b);
 }
 
 void	print_node_val(t_node **stack)
 {
 	t_node	*temp;
-	
+
 	temp = *stack;
-    printf("stack: ");
-    while (temp)
+	printf("stack: ");
+	while (temp)
 	{
 		printf("%d ", temp->value);
 		temp = temp->next;
 	}
-    printf("\n");
+	printf("\n");
 }
 
 int	main(int argc, char **argv)
@@ -92,7 +91,5 @@ int	main(int argc, char **argv)
 		lets_sort(stack_a, stack_b);
 	ft_clean_stack(stack_a);
 	ft_clean_stack(stack_b);
-	// free(*stack_a);
-	// free(*stack_b);
 	return (0);
 }

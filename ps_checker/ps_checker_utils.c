@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_checker_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 20:46:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/20 00:09:21 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:17:42 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

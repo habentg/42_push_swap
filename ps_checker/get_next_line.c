@@ -6,7 +6,7 @@
 /*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:18:27 by hatesfam          #+#    #+#             */
-/*   Updated: 2023/08/20 02:16:51 by hatesfam         ###   ########.fr       */
+/*   Updated: 2023/08/20 02:21:54 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*next_line(char *buffer)
 	if (!buffer[i])
 	{
 		free(buffer);
-		return (NULL);
+		return (0);
 	}
 	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
 	i++;
@@ -42,7 +42,7 @@ char	*extract_line(char *buffer)
 
 	i = 0;
 	if (!buffer[i])
-		return (NULL);
+		return (0);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	line = ft_calloc(i + 2, sizeof(char));
@@ -72,7 +72,7 @@ char	*read_buffer(int fd, char *buff)
 		if (byte_read == -1)
 		{
 			free(buffer);
-			return (NULL);
+			return (0);
 		}
 		buffer[byte_read] = '\0';
 		buff = ft_strjoin(buff, buffer);
@@ -88,10 +88,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647
 		|| read(fd, 0, 0) < 0)
-		return (NULL);
+		return (0);
 	buffer = read_buffer(fd, buffer);
 	if (!buffer)
-		return (NULL);
+		return (0);
 	line = extract_line(buffer);
 	buffer = next_line(buffer);
 	return (line);

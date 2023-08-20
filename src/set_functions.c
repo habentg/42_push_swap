@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 19:35:42 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/03 21:25:33 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/20 15:08:23 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	set_price(t_node *stack_a, t_node *stack_b)
 		if (stack_b->target_node->above_midpoint)
 			stack_b->total_push_cost += stack_b->target_node->current_index;
 		else
-			stack_b->total_push_cost += size_a - (stack_b->target_node->current_index);
+			stack_b->total_push_cost += size_a - \
+				(stack_b->target_node->current_index);
 		stack_b = stack_b->next;
 	}
 }
