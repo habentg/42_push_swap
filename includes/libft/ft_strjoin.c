@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgaudin <lgaudin@student.42malaga.com>     +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:10:28 by lgaudin           #+#    #+#             */
-/*   Updated: 2023/04/13 12:25:49 by lgaudin          ###   ########.fr       */
+/*   Updated: 2023/08/25 08:38:08 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join[i] = '\0';
 	return (join);
 }
-
-// int	main(void)
-// {
-// 	char *s1 = "where is my ";
-// 	char *s2 = "malloc ???";
-
-// 	char *res = ft_strjoin(s2, s1);
-// 	printf("Output is %s\n", res);
-// 	return (0);
-// }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+         #
+#    By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/20 16:55:23 by kvinarao          #+#    #+#              #
-#    Updated: 2023/08/20 00:05:22 by aandom           ###   ########.fr        #
+#    Updated: 2023/08/25 08:36:55 by hatesfam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

@@ -3,31 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+        */
+/*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:56:03 by lgaudin           #+#    #+#             */
-/*   Updated: 2023/08/08 09:09:50 by aandom           ###   ########.fr       */
+/*   Updated: 2023/08/25 08:38:37 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
-
-// char	*ft_strchr(const char *s, int c)
-// {
-// 	int	index;
-
-// 	index = 0;
-// 	while (s[index])
-// 	{
-// 		if (s[index] == c)
-// 			return ((char *)&s[index]);
-// 		index++;
-// 	}
-// 	if (c == '\0')
-// 		return ((char *)&s[index]);
-// 	return (0);
-// }
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -46,16 +30,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s_pointer[index]);
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	char	c;
-// 	char	*s;
-
-// 	c = 'u';
-// 	s = "euuuuuh ?";
-// 	printf("strchr returned %s\n", strchr("teste", 1024));
-// 	printf("ft_strchr returned %s\n", ft_strchr("teste", 1024));
-// 	printf("Théo Babac returned %s\n", s);
-// 	return (0);
-// }

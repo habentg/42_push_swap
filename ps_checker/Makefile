@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aandom <aandom@student.abudhabi42.ae>      +#+  +:+       +#+         #
+#    By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/20 00:06:57 by aandom            #+#    #+#              #
-#    Updated: 2023/08/20 00:06:58 by aandom           ###   ########.fr        #
+#    Updated: 2023/08/25 09:23:01 by hatesfam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = checker
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -O2 -g
-PUSH_SWAP_ARCHIVE = ../push_swap.a
+CFLAGS = -Wall -Wextra -Werror
+LIBFT = ../includes/libft/libft.a
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
@@ -23,19 +23,19 @@ OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) $(PUSH_SWAP_ARCHIVE) 
-	@$(CC) $(CFLAGS) $(OBJS) $(PUSH_SWAP_ARCHIVE)  -o $(NAME)
+$(NAME) : $(OBJS) $(LIBFT) 
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT)  -o $(NAME)
 	@cp $(NAME) ../ 
 
-$(PUSH_SWAP_ARCHIVE) :
-	@cd ../ && make
+$(LIBFT) :
+	@cd ../includes/libft && make
 
 clean :
 	@rm -f $(OBJS)
 
 fclean : clean 
 	@rm -f $(NAME)
-	@cd ../&& rm -f $(NAME)
+	@cd ../ && rm -f $(NAME)
 
 re : fclean all
 

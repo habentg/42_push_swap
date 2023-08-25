@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   check_args_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/25 18:03:42 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/25 09:04:10 by hatesfam         ###   ########.fr       */
+/*   Created: 2023/08/23 19:31:01 by hatesfam          #+#    #+#             */
+/*   Updated: 2023/08/25 09:05:36 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "ps_checker.h"
 
 static int	argv_len(char **args)
 {
@@ -22,17 +22,17 @@ static int	argv_len(char **args)
 	return (n);
 }
 
-static bool	ft_contains(int num, char **args, int i)
+static int	ft_contains(int num, char **args, int i)
 {
 	while (++i < argv_len(args))
 	{
 		if (args[i] && (ft_atoi(args[i]) == num))
-			return (true);
+			return (1);
 	}
-	return (false);
+	return (0);
 }
 
-static bool	ft_isnum(char *num)
+static int	ft_isnum(char *num)
 {
 	int	i;
 
@@ -44,13 +44,13 @@ static bool	ft_isnum(char *num)
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
-			return (false);
+			return (0);
 		i++;
 	}
-	return (true);
+	return (1);
 }
 
-void	check_args(int argc, char **argv)
+void	check_args_bonus(int argc, char **argv)
 {
 	char	**args;
 	int		i;
@@ -64,12 +64,12 @@ void	check_args(int argc, char **argv)
 		i = 1;
 		args = argv;
 	}
-	if (*args == NULL)
-		ft_error("Error");
+	if (*args == 0)
+		ft_error(ERROR_MSG);
 	while (args[i])
 	{
 		temp = ft_atoi(args[i]);
-		if (!ft_isnum(args[i]))
+		if (!ft_isnum(args[i]) || ((temp < INT_MIN || temp > INT_MAX)))
 			ft_error(ERROR_MSG);
 		else if (ft_contains(temp, args, i))
 			ft_error(ERROR_MSG);
