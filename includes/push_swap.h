@@ -25,7 +25,6 @@
 
 typedef struct s_node
 {
-	char			*content;
 	int				value;
 	int				current_index;
 	int				above_midpoint;

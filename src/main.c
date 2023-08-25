@@ -6,7 +6,7 @@
 /*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:01:16 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/25 08:23:58 by hatesfam         ###   ########.fr       */
+/*   Updated: 2023/08/25 09:41:54 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,19 @@ void	lets_sort(t_node **stack_a, t_node **stack_b)
 		sort_big(stack_a, stack_b);
 }
 
-void	print_node_val(t_node **stack)
-{
-	t_node	*temp;
+// void	print_node_val(t_node **stack)
+// {
+// 	t_node	*temp;
 
-	temp = *stack;
-	printf("stack: ");
-	while (temp)
-	{
-		printf("%d ", temp->value);
-		temp = temp->next;
-	}
-	printf("\n");
-}
+// 	temp = *stack;
+// 	printf("stack: ");
+// 	while (temp)
+// 	{
+// 		printf("%d ", temp->value);
+// 		temp = temp->next;
+// 	}
+// 	printf("\n");
+// }
 
 int	main(int argc, char **argv)
 {

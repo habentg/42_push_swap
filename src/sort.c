@@ -6,7 +6,7 @@
 /*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 18:07:12 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/23 06:52:25 by hatesfam         ###   ########.fr       */
+/*   Updated: 2023/08/25 10:00:30 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	sort_three(t_node **stack)
 
 void	node_init(t_node **stack_a, t_node **stack_b)
 {
+	if (!stack_a || !stack_b)
+		return ;
 	index_stack(stack_b);
 	index_stack(stack_a);
 	set_target_node(*stack_a, *stack_b);

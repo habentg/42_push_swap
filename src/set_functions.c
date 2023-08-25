@@ -6,7 +6,7 @@
 /*   By: hatesfam <hatesfam@student.abudhabi42.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 19:35:42 by aandom            #+#    #+#             */
-/*   Updated: 2023/08/20 15:08:23 by hatesfam         ###   ########.fr       */
+/*   Updated: 2023/08/25 09:59:51 by hatesfam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ void	set_cheapest(t_node *stack)
 	int		node_cost;
 	t_node	*cheapest_node;
 
-	if (!stack)
-		return ;
 	node_cost = INT_MAX;
 	cheapest_node = stack;
 	cheapest_node->cheapest = 0;
