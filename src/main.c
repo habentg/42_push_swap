@@ -86,10 +86,14 @@ int	main(int argc, char **argv)
 	check_args(argc, argv);
 	stack_a = (t_node **)calloc(1, sizeof(t_node));
 	stack_b = (t_node **)calloc(1, sizeof(t_node));
+	if (!stack_a || !stack_b)
+		return (0);
 	stack_init(stack_a, argc, argv);
 	if (!is_sorted(stack_a))
 		lets_sort(stack_a, stack_b);
 	ft_clean_stack(stack_a);
 	ft_clean_stack(stack_b);
+	free(stack_a);
+	free(stack_b);
 	return (0);
 }
