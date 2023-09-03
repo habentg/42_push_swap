@@ -76,5 +76,5 @@ void	check_args(int argc, char **argv)
 		i++;
 	}
 	if (argc == 2)
-		ft_clean_argv(args);
+	 	ft_clean_argv(args);
 }
